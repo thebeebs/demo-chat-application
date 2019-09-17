@@ -1,3 +1,3 @@
 # Chat Application
 
-To Learn how to deploy this application go to https://realtimechat.thebeebs.net
+To learn how to deploy this application go to https://realtimechat.thebeebs.net
