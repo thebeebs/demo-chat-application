@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <div id="app">
+            <button @click="connect" v-if="status === 'disconnected'">Connect</button> Status: {{ status }}
+            <br /><br />
+
+            <div v-if="status === 'connected'">
+
+                <form @submit.prevent="sendMessage" action="#">
+                    <textarea v-model="message" placeholder="Write your message here..." required></textarea><button
+                        type="submit">Send Message</button> <button @click="disconnect"
+                        v-if="status === 'connected'">Disconnect </button>
+                </form>
+
+                <ul id="logs">
+                    <li v-for="log in logs" class="log">
+                        {{ log.event }}: {{ log.data }}
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
