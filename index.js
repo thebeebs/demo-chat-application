@@ -1,21 +1,22 @@
-var socketAddress = 'wss://wrewer32.exec3ute-api.eu-west-1.amazonaws.com/Prod';
 var app = new Vue({
     el: "#app",
     data: {
         message: "",
         logs: [],
-        status: "disconnected"
+        status: "disconnected",
+        socketAddress: "wss://827mel7hyl.execute-api.us-east-1.amazonaws.com/Prod"
     },
 
     methods: {
         connect: function connect() {
             var _this = this;
-            this.socket = new WebSocket(socketAddress);
+            this.socket = new WebSocket(this.socketAddress);
             this.socket.onopen = function () {
                 _this.status = "connected";
-                _this.logs.push({ event: "Connected to", data: socketAddress });
+                _this.logs.push({ event: "Connected to", data: _this.socketAddress });
                 _this.socket.onmessage = function (_ref) {
                     var data = _ref.data;
+                    console.log(data);
                     _this.logs.push({ event: "Recieved message", data: data });
                 };
             };
@@ -26,7 +27,7 @@ var app = new Vue({
             this.logs = [];
         },
         sendMessage: function sendMessage(e) {
-            var ob = `{"action":"sendmessage","data": "${this.message}"}`
+            var ob = `{"message":"sendmessage","data": "${this.message}"}`
             this.socket.send(ob);
             this.logs.push({ event: "Sent message", data: this.message });
             this.message = "";
