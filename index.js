@@ -4,7 +4,7 @@ var app = new Vue({
         message: "",
         logs: [],
         status: "disconnected",
-        socketAddress: "wss://calktsr73i.execute-api.eu-west-2.amazonaws.com/Prod"
+        socketAddress: "wss://vdefd77o3j.execute-api.eu-west-1.amazonaws.com/Prod"
     },
 
     methods: {
