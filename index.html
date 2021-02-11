@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat In Chester</title>
+    <title>NorDev Chat</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <div id="page-wrapper">
         <div id="app">
-                
+            <h1>nor(Dev) Chat</h1>
             <input class="socket" v-model="socketAddress" v-if="status === 'disconnected'" placeholder="enter a websocket address here">
             <br /><br />
             <button @click="connect" v-if="status === 'disconnected'">Connect</button> Status: {{ status }}
